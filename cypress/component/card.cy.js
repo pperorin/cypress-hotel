@@ -1,4 +1,4 @@
-import { CardTest } from "../../component-for-test/card";
+import { CardTest } from "../../component/card";
 
 describe("Card", () => {
   it("playground", () => {

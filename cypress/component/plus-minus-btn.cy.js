@@ -1,4 +1,4 @@
-import { PlusMinusButton } from "../../component-for-test/plus-minus-btn";
+import { PlusMinusButton } from "../../component/plus-minus-btn";
 
 describe("PlusMinusButton", () => {
   it("playground", () => {
