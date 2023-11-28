@@ -14,11 +14,11 @@ export const PlusMinusButton = () => {
   }
   return (
     <Row style={{ justifyContent: "space-around", marginTop: "200px" }}>
-      <Button type="primary" onClick={incrementCount}>
+      <Button type="primary" onClick={incrementCount} id="plus">
         +
       </Button>
-      <Typography>{count}</Typography>
-      <Button type="primary" onClick={decrementCount}>
+      <Typography id="count">{count}</Typography>
+      <Button type="primary" onClick={decrementCount} id="minus">
         -
       </Button>
     </Row>

@@ -4,6 +4,7 @@ describe("Global Code : New", () => {
   beforeEach(() => {
     cy.viewport(1400, 1200);
   });
+
   // token
   it("don't have token", () => {
     cy.on("uncaught:exception", (err, runnable) => {
@@ -16,6 +17,8 @@ describe("Global Code : New", () => {
     cy.visit("https://shospitality.thesuperappcrm.com/main/global-code/new");
 
     cy.url().should("eq", "https://portal.thesuperappcrm.com/login");
+
+    cy.wait(2000);
   });
 
   it("invalid token", () => {
@@ -32,6 +35,8 @@ describe("Global Code : New", () => {
     cy.get(
       "body > div.ant-notification.ant-notification-top.css-htwhyh > div:nth-child(1) > div > div > div.ant-notification-notice-description"
     ).should("contain", "invalid signature");
+
+    cy.wait(2000);
   });
 
   it("valid token", () => {
@@ -41,6 +46,8 @@ describe("Global Code : New", () => {
       "eq",
       "https://shospitality.thesuperappcrm.com/main/global-code/new"
     );
+
+    cy.wait(3000);
   });
 
   it("Input : Code Type Code", () => {
@@ -84,6 +91,8 @@ describe("Global Code : New", () => {
       "have.text",
       "Only Eng Uppercase and Number"
     );
+
+    cy.wait(2000);
   });
 
   it("Input : Code Type Name", () => {
@@ -102,10 +111,6 @@ describe("Global Code : New", () => {
 
     cy.get("#code_type_name").clear().type(-1);
     cy.get("#code_type_name").should("have.value", -1);
-    // cy.get("#code_type_name_help > div").should(
-    //   "have.text",
-    //   "Only Eng Uppercase and Number"
-    // );
 
     // string
     cy.get("#code_type_name").clear().type("abcdef");
@@ -116,17 +121,11 @@ describe("Global Code : New", () => {
 
     cy.get("#code_type_name").clear().type("ฟหกดฟหกด");
     cy.get("#code_type_name").should("have.value", "ฟหกดฟหกด");
-    // cy.get("#code_type_name_help > div").should(
-    //   "have.text",
-    //   "Only Eng Uppercase and Number"
-    // );
 
     cy.get("#code_type_name").clear().type("!@#$%^&*");
     cy.get("#code_type_name").should("have.value", "!@#$%^&*");
-    // cy.get("#code_type_name_help > div").should(
-    //   "have.text",
-    //   "Only Eng Uppercase and Number"
-    // );
+
+    cy.wait(2000);
   });
 
   it("Input : Function Area", () => {
@@ -153,6 +152,7 @@ describe("Global Code : New", () => {
     cy.get(
       "#rc-tabs-0-panel-0 > div > div:nth-child(1) > div.ant-collapse-content.ant-collapse-content-active > div > div:nth-child(2) > div > div > div > div.ant-col.ant-form-item-control.css-htwhyh > div > div > div > div > span.ant-select-selection-item"
     ).should("contain.text", "CM Common");
+    cy.wait(2000);
   });
 
   it("Input : Allow Property Level", () => {
@@ -166,6 +166,7 @@ describe("Global Code : New", () => {
     cy.get("#allow_property_level")
       .click()
       .should("have.attr", "aria-checked", "false");
+    cy.wait(2000);
   });
 
   it("Submit : Missing required fields", () => {
@@ -189,6 +190,7 @@ describe("Global Code : New", () => {
       "have.text",
       "Code Type Code is required!"
     );
+    cy.wait(2000);
   });
 
   it("Submit : Contains all required fields", () => {
@@ -209,5 +211,7 @@ describe("Global Code : New", () => {
     cy.get(
       "#__next > section > main > div > div.tw-bg-blue-50 > div > div > button:nth-child(2)"
     ).click();
+    // cy.
+    cy.wait(2000);
   });
 });
