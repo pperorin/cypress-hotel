@@ -1,8 +1,6 @@
 import { Button, Row, Typography } from "antd";
 import { useState } from "react";
 
-import "../public/style.css";
-
 export const PlusMinusButton = () => {
   let [count, setCount] = useState(0);
 
@@ -15,7 +13,7 @@ export const PlusMinusButton = () => {
     setCount(count);
   }
   return (
-    <Row className="space-btw">
+    <Row style={{ justifyContent: "space-around", marginTop: "200px" }}>
       <Button type="primary" onClick={incrementCount}>
         +
       </Button>
