@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.space-btw{
+    justify-content: space-around;
+    margin-top: 200px;
+}

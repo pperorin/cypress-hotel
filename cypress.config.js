@@ -6,5 +6,13 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+
   pageLoadTimeout: 10000,
+
+  component: {
+    devServer: {
+      framework: "next",
+      bundler: "webpack",
+    },
+  },
 });
