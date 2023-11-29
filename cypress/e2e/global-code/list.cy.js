@@ -1,6 +1,6 @@
 import { setToken } from "../../support/utils/set-token";
 
-describe("Global Code : List", () => {
+describe("Global Code : List View", () => {
   beforeEach(() => {
     cy.viewport(1400, 1200);
   });

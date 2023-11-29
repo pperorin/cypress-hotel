@@ -1,6 +1,7 @@
 import { setToken } from "../../support/utils/set-token";
+import { LOGIN_PORTAL_URL } from "../../support/constant";
 
-describe("Global Code : New", () => {
+describe("Global Code : New Mode", () => {
   beforeEach(() => {
     cy.viewport(1400, 1200);
   });
@@ -16,7 +17,7 @@ describe("Global Code : New", () => {
 
     cy.visit("https://shospitality.thesuperappcrm.com/main/global-code/new");
 
-    cy.url().should("eq", "https://portal.thesuperappcrm.com/login");
+    cy.url().should("eq", LOGIN_PORTAL_URL);
 
     cy.wait(2000);
   });
@@ -197,7 +198,7 @@ describe("Global Code : New", () => {
     setToken();
     cy.visit("https://shospitality.thesuperappcrm.com/main/global-code/new");
 
-    cy.get("#code_type_code").type("cypress");
+    cy.get("#code_type_code").type("cypress1");
 
     cy.get("#code_type_name").type("test-cypress");
 
@@ -211,7 +212,9 @@ describe("Global Code : New", () => {
     cy.get(
       "#__next > section > main > div > div.tw-bg-blue-50 > div > div > button:nth-child(2)"
     ).click();
-    // cy.
+    cy.get(
+      "body > div.ant-message.ant-message-top.css-htwhyh > div > div > div > span:nth-child(2)"
+    ).should("have.text", "Record(s) has been successfully saved.");
     cy.wait(2000);
   });
 });
